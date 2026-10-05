@@ -1,0 +1,9 @@
+name = "pkour-share-og"
+main = "share-og.js"
+compatibility_date = "2024-11-01"
+
+# Bind after DNS is on Cloudflare (orange cloud):
+# routes = [
+#   { pattern = "pkour.it/*", zone_name = "pkour.it" },
+#   { pattern = "www.pkour.it/*", zone_name = "pkour.it" }
+# ]
