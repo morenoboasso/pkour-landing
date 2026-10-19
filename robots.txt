@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /review.html
 
 Sitemap: https://pkour.it/sitemap.xml

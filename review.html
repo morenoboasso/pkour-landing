@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PKour — Leave a Review</title>
+  <meta name="description" content="Enjoying PKour? Leave a quick review on the App Store or Google Play.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#126869">
+  <link rel="canonical" href="https://pkour.it/review.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PKour">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://pkour.it/review.html">
+  <meta property="og:title" content="PKour — Leave a Review">
+  <meta property="og:description" content="Enjoying PKour? Leave a quick review on the App Store or Google Play.">
+  <meta property="og:image" content="https://pkour.it/favicon.svg">
+  <meta property="og:image:alt" content="PKour logo">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PKour — Leave a Review">
+  <meta name="twitter:description" content="Enjoying PKour? Leave a quick review on the App Store or Google Play.">
+  <meta name="twitter:image" content="https://pkour.it/favicon.svg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #126869;
+      --accent-bright: #1a9a9c;
+      --bg: #080c0c;
+      --bg2: #0d1515;
+      --text: #e8f0f0;
+      --text-dim: #7a9999;
+      --border: rgba(18,104,105,0.2);
+      --glow: rgba(18,104,105,0.35);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(18,104,105,0.28), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(18,104,105,0.12), transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: linear-gradient(to bottom, rgba(8,12,12,0.96), rgba(8,12,12,0.82));
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-left img { height: 34px; width: auto; }
+    .nav-right { display: flex; gap: 10px; align-items: center; }
+    .lang-select {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 32px 8px 12px;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5L6 7.5L9 4.5' stroke='%237a9999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      transition: all 0.2s;
+    }
+    .lang-select:hover, .lang-select:focus {
+      border-color: var(--accent-bright);
+      outline: none;
+      background-color: rgba(18,104,105,0.1);
+    }
+    .lang-select option { font-size: 18px; background: var(--bg2); color: var(--text); }
+    .ghost-btn {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-dim);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 1px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .ghost-btn:hover {
+      border-color: var(--accent-bright);
+      color: var(--accent-bright);
+      background: rgba(18,104,105,0.1);
+    }
+    main {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 560px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+    .review-panel {
+      width: 100%;
+      text-align: center;
+    }
+    .stars {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 20px;
+      color: var(--accent-bright);
+      font-size: 28px;
+      letter-spacing: 2px;
+      line-height: 1;
+      user-select: none;
+    }
+    .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--accent-bright);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1.5px;
+      font-size: clamp(40px, 8vw, 64px);
+      line-height: 0.95;
+      margin-bottom: 16px;
+    }
+    .subtitle {
+      color: var(--text-dim);
+      font-size: 17px;
+      max-width: 420px;
+      margin: 0 auto 36px;
+    }
+    .store-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    .store-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(13,21,21,0.85);
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      text-align: left;
+    }
+    .store-btn:hover {
+      border-color: var(--accent-bright);
+      background: rgba(18,104,105,0.18);
+      transform: translateY(-1px);
+    }
+    .store-btn:focus-visible {
+      outline: 2px solid var(--accent-bright);
+      outline-offset: 2px;
+    }
+    .store-icon-wrap {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .store-icon--apple {
+      width: 26px;
+      height: 32px;
+      filter: brightness(0) invert(1);
+      display: block;
+    }
+    .store-icon--android {
+      width: 34px;
+      height: 20px;
+      display: block;
+    }
+    .store-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .store-eyebrow {
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.3px;
+    }
+    .store-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+    }
+    .thanks {
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    footer {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px 28px;
+      color: var(--text-dim);
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <a href="/" aria-label="PKour home">
+        <img src="assets/PKour Logo royal tea;.svg" alt="PKour">
+      </a>
+    </div>
+    <div class="nav-right">
+      <select class="lang-select" id="langSelect" aria-label="Change language" onchange="applyLang(this.value)">
+        <option value="en">🇬🇧</option>
+        <option value="it">🇮🇹</option>
+      </select>
+      <a href="/" class="ghost-btn" data-i18n="back_home">HOME</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="review-panel">
+      <div class="stars" aria-hidden="true">★★★★★</div>
+      <div class="eyebrow" data-i18n="eyebrow">Your feedback matters</div>
+      <h1 data-i18n="title">ENJOYING PKOUR?</h1>
+      <p class="subtitle" data-i18n="subtitle">
+        A short review helps more athletes find spots, tricks, and the community.
+      </p>
+
+      <div class="store-buttons">
+        <a
+          class="store-btn"
+          id="iosReviewBtn"
+          href="https://apps.apple.com/us/app/pkour/id6778014567?action=write-review"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-i18n-title="ios_title"
+          title="Leave a review on the App Store"
+        >
+          <span class="store-icon-wrap">
+            <img src="assets/apple-logo.svg" alt="" class="store-icon--apple" width="26" height="32">
+          </span>
+          <span class="store-text">
+            <span class="store-eyebrow" data-i18n="ios_eyebrow">Review on</span>
+            <span class="store-name">App Store</span>
+          </span>
+        </a>
+
+        <a
+          class="store-btn"
+          id="androidReviewBtn"
+          href="https://play.google.com/store/apps/details?id=pkour.it.pkour_fe&showAllReviews=true"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-i18n-title="android_title"
+          title="Leave a review on Google Play"
+        >
+          <span class="store-icon-wrap">
+            <img src="assets/android-logo.svg" alt="" class="store-icon--android" width="34" height="20">
+          </span>
+          <span class="store-text">
+            <span class="store-eyebrow" data-i18n="android_eyebrow">Review on</span>
+            <span class="store-name">Google Play</span>
+          </span>
+        </a>
+      </div>
+
+      <p class="thanks" data-i18n="thanks">Thank you — it only takes a minute.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span data-i18n="footer">© 2026 PKour by Moreno Boasso.</span>
+  </footer>
+
+  <script>
+    const APP_STORE_REVIEW_URL = 'https://apps.apple.com/us/app/pkour/id6778014567?action=write-review';
+    const PLAY_STORE_REVIEW_URL = 'https://play.google.com/store/apps/details?id=pkour.it.pkour_fe&showAllReviews=true';
+
+    const T = {
+      en: {
+        back_home: 'HOME',
+        eyebrow: 'Your feedback matters',
+        title: 'ENJOYING PKOUR?',
+        subtitle: 'A short review helps more athletes find spots, tricks, and the community.',
+        ios_eyebrow: 'Review on',
+        android_eyebrow: 'Review on',
+        ios_title: 'Leave a review on the App Store',
+        android_title: 'Leave a review on Google Play',
+        thanks: 'Thank you — it only takes a minute.',
+        footer: '© 2026 PKour by Moreno Boasso.',
+        doc_title: 'PKour — Leave a Review',
+        doc_desc: 'Enjoying PKour? Leave a quick review on the App Store or Google Play.',
+        lang_label: 'Change language'
+      },
+      it: {
+        back_home: 'HOME',
+        eyebrow: 'Il tuo feedback conta',
+        title: 'TI PIACE PKOUR?',
+        subtitle: 'Una recensione breve aiuta altri atleti a trovare spot, tricks e la community.',
+        ios_eyebrow: 'Recensisci su',
+        android_eyebrow: 'Recensisci su',
+        ios_title: 'Lascia una recensione sull\'App Store',
+        android_title: 'Lascia una recensione su Google Play',
+        thanks: 'Grazie — ci vuole solo un minuto.',
+        footer: '© 2026 PKour by Moreno Boasso.',
+        doc_title: 'PKour — Lascia una recensione',
+        doc_desc: 'Ti piace PKour? Lascia una recensione rapida su App Store o Google Play.',
+        lang_label: 'Cambia lingua'
+      }
+    };
+
+    // English by default; Italian only if browser is clearly IT.
+    const browserLang = (navigator.language || 'en').toLowerCase();
+    let lang = browserLang.startsWith('it') ? 'it' : 'en';
+
+    function applyLang(nextLang) {
+      lang = nextLang === 'it' ? 'it' : 'en';
+      const t = T[lang];
+      document.documentElement.lang = lang;
+      document.title = t.doc_title;
+
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) metaDescription.setAttribute('content', t.doc_desc);
+
+      const ogLocale = document.querySelector('meta[property="og:locale"]');
+      if (ogLocale) ogLocale.setAttribute('content', lang === 'it' ? 'it_IT' : 'en_US');
+
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', t.doc_title);
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute('content', t.doc_desc);
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach((el) => {
+        const key = el.getAttribute('data-i18n-title');
+        if (t[key] !== undefined) el.setAttribute('title', t[key]);
+      });
+
+      const langSelect = document.getElementById('langSelect');
+      if (langSelect) {
+        langSelect.value = lang;
+        langSelect.setAttribute('aria-label', t.lang_label);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('iosReviewBtn').href = APP_STORE_REVIEW_URL;
+      document.getElementById('androidReviewBtn').href = PLAY_STORE_REVIEW_URL;
+      applyLang(lang);
+    });
+  </script>
+</body>
+</html>
