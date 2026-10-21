@@ -185,12 +185,16 @@ const STRINGS = {
   it: {
     spot: 'Spot parkour',
     trick: 'Trick parkour',
+    event: 'Evento parkour',
+    jam: 'Jam parkour',
     open_app: 'Apri in PKour',
     download_ios: 'Scarica su App Store',
     download_android: 'Scarica su Google Play',
     coming_soon: 'Iscriviti alla beta',
     spot_desc: 'Scopri questo spot sulla mappa PKour.',
     trick_desc: 'Studia questo trick nell\'enciclopedia PKour.',
+    event_desc: 'Scopri questo evento sulla community PKour.',
+    jam_desc: 'Unisciti a questa jam sulla community PKour.',
     not_found: 'Contenuto non trovato.',
     invalid_link: 'Link non valido.',
     post_install_hint: 'Dopo aver installato l\'app e fatto login, riapri questo link per aprire il contenuto.',
@@ -200,12 +204,16 @@ const STRINGS = {
   en: {
     spot: 'Parkour spot',
     trick: 'Parkour trick',
+    event: 'Parkour event',
+    jam: 'Parkour jam',
     open_app: 'Open in PKour',
     download_ios: 'Download on the App Store',
     download_android: 'Get it on Google Play',
     coming_soon: 'Join the beta',
     spot_desc: 'Discover this spot on the PKour map.',
     trick_desc: 'Study this trick in the PKour encyclopedia.',
+    event_desc: 'Discover this event on the PKour community.',
+    jam_desc: 'Join this jam on the PKour community.',
     not_found: 'Content not found.',
     invalid_link: 'Invalid link.',
     post_install_hint: 'After installing the app and signing in, open this link again to view the content.',
@@ -223,7 +231,13 @@ function parseSharePath() {
   const parts = window.location.pathname.split('/').filter(Boolean);
   if (parts.length !== 2) return null;
   const [type, id] = parts;
-  if ((type === 'spots' || type === 'tricks') && id) {
+  if (
+    (type === 'spots' ||
+      type === 'tricks' ||
+      type === 'events' ||
+      type === 'jams') &&
+    id
+  ) {
     return { type, id };
   }
   return null;
@@ -267,7 +281,29 @@ function imageFromData(type, data) {
       return typeof first === 'string' ? first : first.url;
     }
   }
+  if (type === 'events') {
+    return data.banner_url || null;
+  }
+  if (type === 'jams') {
+    return null;
+  }
   return data.thumbnail_url || null;
+}
+
+function labelForType(t, type) {
+  if (type === 'spots') return t.spot;
+  if (type === 'tricks') return t.trick;
+  if (type === 'events') return t.event;
+  if (type === 'jams') return t.jam;
+  return 'PKour';
+}
+
+function descForType(t, type) {
+  if (type === 'spots') return t.spot_desc;
+  if (type === 'tricks') return t.trick_desc;
+  if (type === 'events') return t.event_desc;
+  if (type === 'jams') return t.jam_desc;
+  return '';
 }
 
 function renderError(message) {
@@ -288,8 +324,8 @@ function renderPreview(type, id, data) {
   const t = lang();
   const name = data.nome || data.name || 'PKour';
   const image = imageFromData(type, data);
-  const eyebrow = type === 'spots' ? t.spot : t.trick;
-  const subtitle = type === 'spots' ? t.spot_desc : t.trick_desc;
+  const eyebrow = labelForType(t, type);
+  const subtitle = descForType(t, type);
   const deepLink = window.location.href;
   const isAndroid = /Android/i.test(navigator.userAgent);
   const storeUrl = STORES_PUBLISHED

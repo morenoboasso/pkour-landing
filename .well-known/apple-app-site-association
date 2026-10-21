@@ -4,7 +4,7 @@
     "details": [
       {
         "appID": "PCFC53Q574.it.pkour.pkour",
-        "paths": ["/spots/*", "/tricks/*"]
+        "paths": ["/spots/*", "/tricks/*", "/events/*", "/jams/*"]
       }
     ]
   }
