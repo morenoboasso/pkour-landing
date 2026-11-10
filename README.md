@@ -2,16 +2,16 @@
 
 Landing statica di [pkour.it](https://pkour.it) (GitHub Pages).
 
-## Open Graph (share spot / trick)
+## Open Graph (share spot / trick / event / jam)
 
-I link dell’app sono `https://pkour.it/spots/:id` e `https://pkour.it/tricks/:id`.
+I link dell’app sono `https://pkour.it/{spots|tricks|events|jams}/:id`.
 
 I crawler social **non eseguono JavaScript**, quindi serve HTML con meta OG già nell’HTML iniziale.
 
 ### Architettura
 
-1. **Backend** (`PKour-be`): `GET /share/spots/:id` e `GET /share/tricks/:id` restituiscono HTML con `og:title` / `og:image` (cover spot o thumbnail trick; fallback `https://pkour.it/og-default.png`).
-2. **Cloudflare Worker** ([`workers/share-og.js`](workers/share-og.js)): su `/spots/*` e `/tricks/*` fa proxy all’HTML del BE; il resto resta su GitHub Pages.
+1. **Backend** (`PKour-be`): `GET /share/{spots|tricks|events|jams}/:id` restituiscono HTML con `og:title` / `og:image` (cover spot, thumbnail trick, banner evento, foto spot della jam; fallback `https://pkour.it/og-default.png`).
+2. **Cloudflare Worker** ([`workers/share-og.js`](workers/share-og.js)): su `/spots/*`, `/tricks/*`, `/events/*` e `/jams/*` fa proxy all’HTML del BE; il resto resta su GitHub Pages.
 3. **Asset**: [`og-default.png`](og-default.png) (1200×630) — non usare SVG come `og:image`.
 
 ```
@@ -20,8 +20,8 @@ https://pkour.it/spots/123
         ▼
  Cloudflare Worker
         │
-        ├─ /spots|tricks/:id  →  Cloud Run /share/...
-        └─ altro              →  GitHub Pages
+        ├─ /spots|tricks|events|jams/:id  →  Cloud Run /share/...
+        └─ altro                          →  GitHub Pages
 ```
 
 ### Deploy Worker (obbligatorio per le preview social)

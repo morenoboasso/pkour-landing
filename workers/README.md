@@ -4,9 +4,9 @@ Vedi anche il [README della landing](../README.md#open-graph-share-spot--trick).
 
 ## Ruolo
 
-Proxy di `https://pkour.it/spots/:id` e `https://pkour.it/tricks/:id` verso:
+Proxy di `https://pkour.it/{spots|tricks|events|jams}/:id` verso:
 
-`https://pkour-be-513506522652.europe-west1.run.app/share/{spots|tricks}/:id`
+`https://pkour-be-513506522652.europe-west1.run.app/share/{spots|tricks|events|jams}/:id`
 
 così i crawler ricevono HTML con `og:image` / `og:title` dinamici.
 

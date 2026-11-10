@@ -4,6 +4,8 @@
  * Routes:
  *   /spots/:id  -> BE GET /share/spots/:id  (HTML + OG)
  *   /tricks/:id -> BE GET /share/tricks/:id (HTML + OG)
+ *   /events/:id -> BE GET /share/events/:id (HTML + OG)
+ *   /jams/:id   -> BE GET /share/jams/:id   (HTML + OG)
  *   everything else -> origin (GitHub Pages)
  *
  * Deploy (dashboard or wrangler):
@@ -25,7 +27,7 @@
 const BE_SHARE_ORIGIN =
   'https://pkour-be-513506522652.europe-west1.run.app';
 
-const SHARE_PATH = /^\/(spots|tricks)\/([^/]+)\/?$/;
+const SHARE_PATH = /^\/(spots|tricks|events|jams)\/([^/]+)\/?$/;
 
 export default {
   async fetch(request, _env, _ctx) {

@@ -285,7 +285,7 @@ function imageFromData(type, data) {
     return data.banner_url || null;
   }
   if (type === 'jams') {
-    return null;
+    return data.cover_url || data.banner_url || null;
   }
   return data.thumbnail_url || null;
 }

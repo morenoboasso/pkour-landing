@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PKour — L'app per trovare Parkour Spot</title>
-<meta name="description" content="PKour è l'app per trovare parkour spot vicino a te: mappa interattiva, enciclopedia tricks, progress tracker e profilo atleta per la community parkour.">
-<meta name="keywords" content="parkour spot, parkour app, spot parkour, mappa parkour, PKour, freerunning, traceur">
+<meta name="description" content="PKour è l'app per trovare parkour spot vicino a te: mappa interattiva, eventi e jam, enciclopedia tricks, progress tracker e profilo atleta per la community parkour.">
+<meta name="keywords" content="parkour spot, parkour app, spot parkour, mappa parkour, eventi parkour, jam parkour, PKour, freerunning, traceur">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="PKour">
 <meta name="theme-color" content="#126869">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="it_IT">
 <meta property="og:url" content="https://pkour.it/">
 <meta property="og:title" content="PKour - L'app per trovare Parkour Spot">
-<meta property="og:description" content="Trova parkour spot vicino a te con PKour: mappa interattiva, enciclopedia tricks e progress tracker per la community parkour.">
+<meta property="og:description" content="Trova parkour spot vicino a te con PKour: mappa interattiva, eventi e jam, enciclopedia tricks e progress tracker per la community parkour.">
 <meta property="og:image" content="https://pkour.it/og-default.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -26,7 +26,7 @@
 <meta property="og:image:secure_url" content="https://pkour.it/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PKour - L'app per trovare Parkour Spot">
-<meta name="twitter:description" content="Trova parkour spot vicino a te con PKour: mappa interattiva, enciclopedia tricks e progress tracker per la community parkour.">
+<meta name="twitter:description" content="Trova parkour spot vicino a te con PKour: mappa interattiva, eventi e jam, enciclopedia tricks e progress tracker per la community parkour.">
 <meta name="twitter:image" content="https://pkour.it/og-default.png">
 <meta name="twitter:image:alt" content="PKour logo">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -50,13 +50,13 @@
   "applicationCategory": "HealthApplication",
   "operatingSystem": "iOS, Android",
   "url": "https://pkour.it/",
-  "description": "App per trovare parkour spot e allenarsi con la community: mappa interattiva, check-in live, enciclopedia tricks e progress tracker.",
+  "description": "App per trovare parkour spot e allenarsi con la community: mappa interattiva, eventi e jam, enciclopedia tricks e progress tracker.",
   "featureList": [
     "Mappa parkour spot interattiva",
-    "Check-in live allo spot",
+    "Eventi e jam della community",
     "Enciclopedia tricks e progress tracker"
   ],
-  "keywords": "parkour spot, parkour app, mappa parkour, freerunning",
+  "keywords": "parkour spot, parkour app, mappa parkour, eventi parkour, jam parkour, freerunning",
   "publisher": {
     "@type": "Organization",
     "name": "PKour"
@@ -164,7 +164,7 @@
   .btn-primary:hover { background: var(--accent-bright); transform: translateY(-2px); box-shadow: 0 12px 32px var(--glow); }
   .btn-ghost { color: var(--text-dim); padding: 16px 24px; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
   .btn-ghost:hover { color: var(--text); }
-  .hero-stats { display: flex; gap: 32px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .hero-stats { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
   .stat-item { text-align: left; }
   .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--accent-bright); letter-spacing: 1px; display: block; }
   .stat-label { font-size: 12px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
@@ -400,7 +400,7 @@
       <span data-i18n="hero_t2">PARKOUR</span><br>
       <span class="accent-line" data-i18n="hero_t3">IN UN'APP</span>
     </h1>
-    <p class="hero-desc animate-up delay-3" data-i18n="hero_desc">PKour è l'app per trovare parkour spot vicino a te, imparare tricks, tracciare i progressi e connetterti con la community parkour — tutto in un'unica piattaforma.</p>
+    <p class="hero-desc animate-up delay-3" data-i18n="hero_desc">PKour è l'app per trovare parkour spot vicino a te, scoprire eventi e jam, imparare tricks, tracciare i progressi e connetterti con la community parkour.</p>
     <div class="hero-actions animate-up delay-4">
       <a href="#download" class="btn-primary download-cta" title="Scarica gratis l'app PKour" data-i18n-title="link_download_free">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v10M4 7l4 4 4-4M2 13h12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -411,6 +411,7 @@
     <div class="hero-stats animate-up delay-4">
       <div class="stat-item"><span class="stat-num">200+</span><span class="stat-label" data-i18n="s_tricks">Tricks</span></div>
       <div class="stat-item"><span class="stat-num">Infinite</span><span class="stat-label" data-i18n="s_spots">Spots</span></div>
+      <div class="stat-item"><span class="stat-num">Daily</span><span class="stat-label" data-i18n="s_events">Events &amp; Jams</span></div>
     </div>
   </div>
   <div class="hero-phone">
@@ -431,13 +432,13 @@
 <section class="features-section" id="features">
   <div class="section-eyebrow" data-i18n="feat_eye">Feature</div>
   <h2 class="section-title" data-i18n="feat_title">Ogni strumento<br>che ti serve</h2>
-  <p class="section-sub" data-i18n="feat_sub">Da atleta principiante a traceur esperto, PKour cresce con te.</p>
+  <p class="section-sub" data-i18n="feat_sub">Pensata per chi inizia e per chi allena da anni.</p>
   <div class="features-grid">
-    <div class="feature-card"><div class="feature-num">01</div><div class="feature-icon">🗺️</div><h3 class="feature-title" data-i18n="f1t">Mappa Spot</h3><p class="feature-desc" data-i18n="f1d">Esplora parkour spot reali su mappa interattiva. Filtra per distanza e tipo, leggi recensioni e trova sempre dove andare vicino a te.</p></div>
-    <div class="feature-card"><div class="feature-num">02</div><div class="feature-icon">⚡</div><h3 class="feature-title" data-i18n="f_live_t">Allenamento Live</h3><p class="feature-desc" data-i18n="f_live_d">Segnala che ti stai allenando in uno spot. La community vede quante persone sono attive, senza esporre chi sei.</p></div>
-    <div class="feature-card"><div class="feature-num">03</div><div class="feature-icon">📚</div><h3 class="feature-title" data-i18n="f2t">Enciclopedia Tricks</h3><p class="feature-desc" data-i18n="f2d">Lista completa di movimenti con prerequisiti, video tutorial e descrizioni dettagliate. Segna cosa sai fare, cosa stai imparando e cosa hai ancora da scoprire.</p></div>
-    <div class="feature-card"><div class="feature-num">04</div><div class="feature-icon">🎥</div><h3 class="feature-title" data-i18n="f3t">Progress Tracker</h3><p class="feature-desc" data-i18n="f3d">Registra i tuoi tentativi con video locali. Guarda la tua crescita tecnica nel tempo e mantieni la motivazione con una timeline visiva dei progressi.</p></div>
-    <div class="feature-card"><div class="feature-num">05</div><div class="feature-icon">👤</div><h3 class="feature-title" data-i18n="f6t">Profilo Atleta</h3><p class="feature-desc" data-i18n="f6d">Il tuo profilo con statistiche complete: trick completati, spot visitati, rating community. Mostra i tuoi progressi e connettiti con altri atleti.</p></div>
+    <div class="feature-card"><div class="feature-num">01</div><div class="feature-icon">🗺️</div><h3 class="feature-title" data-i18n="f1t">Mappa Spot</h3><p class="feature-desc" data-i18n="f1d">Trova spot reali vicino a te, con foto e recensioni. Puoi anche indicare che ti stai allenando e vedere se c’è già qualcuno attivo nello spot.</p></div>
+    <div class="feature-card"><div class="feature-num">02</div><div class="feature-icon">🗓️</div><h3 class="feature-title" data-i18n="f_comm_t">Community</h3><p class="feature-desc" data-i18n="f_comm_d">Scopri eventi e jam vicino a te, creali, tienili nella tua lista oppure condividili.</p></div>
+    <div class="feature-card"><div class="feature-num">03</div><div class="feature-icon">📚</div><h3 class="feature-title" data-i18n="f2t">Enciclopedia Tricks</h3><p class="feature-desc" data-i18n="f2d">Una raccolta di movimenti con difficoltà, tag e video tutorial. Tieni traccia di cosa stai imparando e di cosa hai già completato.</p></div>
+    <div class="feature-card"><div class="feature-num">04</div><div class="feature-icon">🎥</div><h3 class="feature-title" data-i18n="f3t">Progress Tracker</h3><p class="feature-desc" data-i18n="f3d">Registra i tuoi tentativi in video sul telefono e rivedi i progressi di ogni trick nel tempo.</p></div>
+    <div class="feature-card"><div class="feature-num">05</div><div class="feature-icon">👤</div><h3 class="feature-title" data-i18n="f6t">Profilo Atleta</h3><p class="feature-desc" data-i18n="f6d">I tuoi spot salvati e creati, le jam e gli eventi a cui partecipi. Il tuo spazio nella community parkour.</p></div>
   </div>
 </section>
 
@@ -447,16 +448,16 @@
     <h2 class="section-title" data-i18n="seo_title">Trova i migliori<br>parkour spot</h2>
   </div>
   <div class="seo-content">
-    <p data-i18n="seo_p1">Cercare un parkour spot affidabile non è mai stato così semplice. Con PKour, l'app dedicata alla community parkour, puoi scoprire spot verificati dalla community, leggere recensioni su qualità e sicurezza, e aggiungere nuovi luoghi dove allenarti.</p>
-    <p data-i18n="seo_p2">Ogni parkour spot sulla mappa include informazioni utili: tipo di ostacoli, recensioni sulla qualità e livello di sicurezza, così sai sempre cosa aspettarti prima di andare.</p>
-    <p data-i18n="seo_p3">PKour unisce la ricerca di parkour spot con enciclopedia tricks, progress tracker e profilo atleta. Scarica l'app e scopri dove allenarti nella tua città.</p>
+    <p data-i18n="seo_p1">Con PKour scopri spot parkour vicino a te, con recensioni su qualità e sicurezza. Puoi anche proporne di nuovi: ogni spot viene controllato prima di diventare pubblico.</p>
+    <p data-i18n="seo_p2">Per ogni spot trovi foto, ostacoli, qualità e sicurezza, così sai cosa aspettarti prima di uscire.</p>
+    <p data-i18n="seo_p3">Spot, eventi, jam, tricks e progressi: tutto quello che serve per allenarti, in un’unica app.</p>
   </div>
 </section>
 
 <section class="screenshots-section">
   <div class="section-eyebrow" data-i18n="ss_eye">App in azione</div>
   <h2 class="section-title" data-i18n="ss_title">Progettata per<br>l'atleta moderno</h2>
-  <p class="section-sub" data-i18n="ss_sub">Un'interfaccia pensata per essere usata sul campo, sotto al sole, con le mani sporche.</p>
+  <p class="section-sub" data-i18n="ss_sub">Semplice, veloce, sempre pronta all'azione.</p>
   <div class="screenshots-track">
     <div class="screenshot-phone">
       <img src="assets/screenshots/map.webp" alt="PKour mappa parkour spot" data-i18n-alt="ss_map_alt" width="260" height="518" loading="lazy" decoding="async">
@@ -491,9 +492,9 @@
   <div class="section-eyebrow" data-i18n="how_eye">Come funziona</div>
   <h2 class="section-title" data-i18n="how_title">Tre passi per<br>iniziare</h2>
   <div class="steps-row" style="margin-top:60px;">
-    <div class="step"><div class="step-num">1</div><h3 class="step-title" data-i18n="st1t">Scarica e crea il profilo</h3><p class="step-desc" data-i18n="st1d">Registrati, inserisci il tuo livello e seleziona i trick che già conosci. PKour impara da te.</p></div>
-    <div class="step"><div class="step-num">2</div><h3 class="step-title" data-i18n="st2t">Esplora l'enciclopedia</h3><p class="step-desc" data-i18n="st2d">Sfoglia centinaia di movimenti, guarda i tutorial, impara i prerequisiti e traccia i tuoi progressi con video personali.</p></div>
-    <div class="step"><div class="step-num">3</div><h3 class="step-title" data-i18n="st3t">Vai allo spot</h3><p class="step-desc" data-i18n="st3d">Trova parkour spot vicini, vota e aggiungi nuovi spot. La community cresce insieme a te.</p></div>
+    <div class="step"><div class="step-num">1</div><h3 class="step-title" data-i18n="st1t">Scarica e crea il profilo</h3><p class="step-desc" data-i18n="st1d">Crea il tuo account e scegli se mostrarti con un profilo pubblico o privato.</p></div>
+    <div class="step"><div class="step-num">2</div><h3 class="step-title" data-i18n="st2t">Esplora l'enciclopedia</h3><p class="step-desc" data-i18n="st2d">Sfoglia i trick, guarda i video tutorial e aggiorna i tuoi progressi.</p></div>
+    <div class="step"><div class="step-num">3</div><h3 class="step-title" data-i18n="st3t">Vai allo spot</h3><p class="step-desc" data-i18n="st3d">Trova spot, eventi e jam vicino a te e unisciti alla community.</p></div>
   </div>
 </section>
 
@@ -563,7 +564,7 @@
   <div class="footer-container">
     <div class="footer-brand-col">
       <img src="assets/PKour Logo white.svg" alt="PKour" width="140" height="40" loading="lazy" decoding="async">
-      <p class="footer-tagline" data-i18n="footer_tagline">L'app per trovare parkour spot e allenarti con la community.</p>
+      <p class="footer-tagline" data-i18n="footer_tagline">L'app per trovare spot, eventi e jam e allenarti con la community.</p>
     </div>
     <div class="footer-links-col">
       <h3 class="footer-heading" data-i18n="footer_legal">Legal</h3>
@@ -601,18 +602,18 @@ const T = {
   it: {
     nav_cta:"Download", hero_eyebrow:"Il tuo compagno di allenamento",
     hero_t1:"TUTTO IL", hero_t2:"PARKOUR", hero_t3:"IN UN'APP",
-    hero_desc:"PKour è l'app per trovare parkour spot vicino a te, imparare tricks, tracciare i progressi e connetterti con la community parkour — tutto in un'unica piattaforma.",
+    hero_desc:"PKour è l'app per trovare parkour spot vicino a te, scoprire eventi e jam, imparare tricks, tracciare i progressi e connetterti con la community parkour.",
     hero_cta:"Download Gratis", hero_cta2:"Scopri le feature",
     link_download:"Scarica l'app PKour", link_download_free:"Scarica gratis l'app PKour",
     link_features:"Scopri le funzionalità di PKour",
     link_privacy:"Leggi la Privacy Policy di PKour",
     link_terms:"Leggi i Termini di Servizio di PKour", link_delete:"Richiedi l'eliminazione del tuo account PKour",
     link_email:"Contatta il supporto PKour via email", link_instagram:"Segui PKour su Instagram",
-    s_tricks:"Tricks", s_spots:"Spots", s_coach:"Social",
+    s_tricks:"Tricks", s_spots:"Spots", s_events:"Events & Jams", s_coach:"Social",
     map_near:"Spot Vicino a Te", map_sub:"2 spot nelle vicinanze · Torino",
-    feat_eye:"Feature", feat_title:"Ogni strumento<br>che ti serve", feat_sub:"Da atleta principiante a traceur esperto, PKour cresce con te.",
-    f1t:"Mappa Spot", f1d:"Esplora parkour spot reali su mappa interattiva. Filtra per distanza e tipo, leggi recensioni e trova sempre dove andare vicino a te.",
-    f_live_t:"Allenamento Live", f_live_d:"Segnala che ti stai allenando in uno spot. La community vede quante persone sono attive, senza esporre chi sei.",
+    feat_eye:"Feature", feat_title:"Ogni strumento<br>che ti serve", feat_sub:"Pensata per chi inizia e per chi allena da anni.",
+    f1t:"Mappa Spot", f1d:"Trova spot reali vicino a te, con foto e recensioni. Puoi anche indicare che ti stai allenando e vedere se c’è già qualcuno attivo nello spot.",
+    f_comm_t:"Community", f_comm_d:"Scopri eventi e jam vicino a te, creali, tienili nella tua lista oppure condividili.",
     ss_map_alt:"PKour mappa parkour spot",
     ss_spot_alt:"PKour dettaglio parkour spot",
     ss_tricks_alt:"PKour enciclopedia tricks",
@@ -620,12 +621,12 @@ const T = {
     ss_video_alt:"PKour progress tracker video",
     ss_profile_alt:"PKour profilo atleta",
     seo_eye:"Parkour Spot", seo_title:"Trova i migliori<br>parkour spot",
-    seo_p1:"Cercare un parkour spot affidabile non è mai stato così semplice. Con PKour, l'app dedicata alla community parkour, puoi scoprire spot verificati dalla community, leggere recensioni su qualità e sicurezza, e aggiungere nuovi luoghi dove allenarti.",
-    seo_p2:"Ogni parkour spot sulla mappa include informazioni utili: tipo di ostacoli, recensioni sulla qualità e livello di sicurezza, così sai sempre cosa aspettarti prima di andare.",
-    seo_p3:"PKour unisce la ricerca di parkour spot con enciclopedia tricks, progress tracker e profilo atleta. Scarica l'app e scopri dove allenarti nella tua città.",
-    f2t:"Enciclopedia Tricks", f2d:"Lista completa di movimenti con prerequisiti, video tutorial e descrizioni dettagliate. Segna cosa sai fare, cosa stai imparando e cosa hai ancora da scoprire.",
-    f3t:"Progress Tracker", f3d:"Registra i tuoi tentativi con video locali. Guarda la tua crescita tecnica nel tempo e mantieni la motivazione con una timeline visiva dei progressi.",
-    f6t:"Profilo Atleta", f6d:"Il tuo profilo con statistiche complete: trick completati, spot visitati, rating community. Mostra i tuoi progressi e connettiti con altri atleti.",
+    seo_p1:"Con PKour scopri spot parkour vicino a te, con recensioni su qualità e sicurezza. Puoi anche proporne di nuovi: ogni spot viene controllato prima di diventare pubblico.",
+    seo_p2:"Per ogni spot trovi foto, ostacoli, qualità e sicurezza, così sai cosa aspettarti prima di uscire.",
+    seo_p3:"Spot, eventi, jam, tricks e progressi: tutto quello che serve per allenarti, in un’unica app.",
+    f2t:"Enciclopedia Tricks", f2d:"Una raccolta di movimenti con difficoltà, tag e video tutorial. Tieni traccia di cosa stai imparando e di cosa hai già completato.",
+    f3t:"Progress Tracker", f3d:"Registra i tuoi tentativi in video sul telefono e rivedi i progressi di ogni trick nel tempo.",
+    f6t:"Profilo Atleta", f6d:"I tuoi spot salvati e creati, le jam e gli eventi a cui partecipi. Il tuo spazio nella community parkour.",
     ss_eye:"App in azione", ss_title:"Progettata per<br>l'atleta moderno", ss_sub:"Semplice, veloce, sempre pronta all'azione.",
     sc1t:"Enciclopedia", sc1s:"Cerca un trick…",
     lb1:"Base · Salti", lb2:"Intermedio · Vault", lb3:"Avanzato · Flip", lb4:"Base · Arrampicata", lb5:"Base · Vault",
@@ -633,9 +634,9 @@ const T = {
     pr_bio:"Traceur da 4 anni · Torino", pr_ov:"Progressi Generali", pr_fl:"Flip & Tricking",
     sp_name:"Muro Via Garibaldi", sp_safe:"🛡️ Sicuro", sp_desc:"Muretto lungo circa 3m, ottimo per precision e speed vault. Pavimento in cemento buono.", sp_vis:"✓ Segna come Visitato",
     how_eye:"Come funziona", how_title:"Tre passi per<br>iniziare",
-    st1t:"Scarica e crea il profilo", st1d:"Registrati, inserisci il tuo livello e seleziona i trick che già conosci. PKour impara da te.",
-    st2t:"Esplora l'enciclopedia", st2d:"Sfoglia centinaia di movimenti, guarda i tutorial, impara i prerequisiti e traccia i tuoi progressi con video personali.",
-    st3t:"Vai allo spot", st3d:"Trova parkour spot vicini, vota e aggiungi nuovi spot. La community cresce insieme a te.",
+    st1t:"Scarica e crea il profilo", st1d:"Crea il tuo account e scegli se mostrarti con un profilo pubblico o privato.",
+    st2t:"Esplora l'enciclopedia", st2d:"Sfoglia i trick, guarda i video tutorial e aggiorna i tuoi progressi.",
+    st3t:"Vai allo spot", st3d:"Trova spot, eventi e jam vicino a te e unisciti alla community.",
     cta_title:"Pronto a salire<br>di livello?",
     cta_sub_live:"Scarica PKour su iOS e Android.",
     cta_btn:"Avvisami all'uscita", ep:"la-tua@email.com",
@@ -644,27 +645,27 @@ const T = {
     download_ios:"Scarica su App Store", download_android:"Scarica su Google Play",
     cd_caption:"Uscita dell'app su iOS e Android tra",
     cd_days:"giorni", cd_hours:"ore", cd_mins:"min", cd_secs:"sec",
-    footer_tagline:"L'app per trovare parkour spot e allenarti con la community.",
+    footer_tagline:"L'app per trovare spot, eventi e jam e allenarti con la community.",
     footer_legal:"Legal", footer_privacy:"Privacy Policy", footer_terms:"Terms of Service", footer_delete:"Elimina account", footer_contact:"Contact",
     footer:"© 2026 PKour by Moreno Boasso.",
     doc_title:"PKour — L'app per trovare Parkour Spot",
-    doc_desc:"PKour è l'app per trovare parkour spot vicino a te: mappa interattiva, enciclopedia tricks, progress tracker e profilo atleta."
+    doc_desc:"PKour è l'app per trovare parkour spot vicino a te: mappa, eventi e jam, tricks, progressi e profilo atleta."
   },
   en: {
     nav_cta:"Download", hero_eyebrow:"Your training companion",
     hero_t1:"ALL OF", hero_t2:"PARKOUR", hero_t3:"IN ONE APP",
-    hero_desc:"PKour is the app to find parkour spots near you, learn tricks, track progress and connect with the parkour community — all in one platform.",
+    hero_desc:"PKour is the app to find parkour spots near you, discover events and jams, learn tricks, track progress and connect with the parkour community.",
     hero_cta:"Free Download", hero_cta2:"Explore features",
     link_download:"Download the PKour app", link_download_free:"Download PKour for free",
     link_features:"Discover PKour features",
     link_privacy:"Read PKour Privacy Policy",
     link_terms:"Read PKour Terms of Service", link_delete:"Request deletion of your PKour account",
     link_email:"Contact PKour support via email", link_instagram:"Follow PKour on Instagram",
-    s_tricks:"Tricks", s_spots:"Spots", s_coach:"Social",
+    s_tricks:"Tricks", s_spots:"Spots", s_events:"Events & Jams", s_coach:"Social",
     map_near:"Spots Near You", map_sub:"2 spots nearby · Turin",
-    feat_eye:"Features", feat_title:"Every tool<br>you need", feat_sub:"From beginner athlete to expert traceur, PKour grows with you.",
-    f1t:"Spot Map", f1d:"Explore real parkour spots on an interactive map. Filter by distance and type, read reviews and always know where to go near you.",
-    f_live_t:"Live Training", f_live_d:"Let others know you're training at a spot. The community sees how many people are active — not who they are.",
+    feat_eye:"Features", feat_title:"Every tool<br>you need", feat_sub:"Built for beginners and athletes who've trained for years.",
+    f1t:"Spot Map", f1d:"Find real spots near you, with photos and reviews. You can also mark that you're training and see if anyone is already active at the spot.",
+    f_comm_t:"Community", f_comm_d:"Discover nearby events and jams, create them, keep them in your list, or share them.",
     ss_map_alt:"PKour parkour spot map",
     ss_spot_alt:"PKour parkour spot detail",
     ss_tricks_alt:"PKour tricks encyclopedia",
@@ -672,12 +673,12 @@ const T = {
     ss_video_alt:"PKour video progress tracker",
     ss_profile_alt:"PKour athlete profile",
     seo_eye:"Parkour Spots", seo_title:"Find the best<br>parkour spots",
-    seo_p1:"Finding a reliable parkour spot has never been easier. With PKour, the app built for the parkour community, you can discover community-verified spots, read reviews on quality and safety, and add new places to train.",
-    seo_p2:"Every parkour spot on the map includes useful details: obstacle types, quality reviews and safety level, so you always know what to expect before you go.",
-    seo_p3:"PKour combines parkour spot discovery with tricks encyclopedia, progress tracker and athlete profile. Download the app and find where to train in your city.",
-    f2t:"Tricks Encyclopedia", f2d:"Full list of movements with prerequisites, video tutorials and detailed descriptions. Mark what you can do, what you're learning, and what's still ahead.",
-    f3t:"Progress Tracker", f3d:"Record your attempts with local videos. Watch your technical growth over time and stay motivated with a visual progress timeline.",
-    f6t:"Athlete Profile", f6d:"Your profile with full stats: tricks completed, spots visited, community rating. Show your progress and connect with other athletes.",
+    seo_p1:"With PKour you discover parkour spots near you, with quality and safety reviews. You can also propose new ones: every spot is checked before going public.",
+    seo_p2:"Each spot shows photos, obstacles, quality and safety, so you know what to expect before you head out.",
+    seo_p3:"Spots, events, jams, tricks and progress: everything you need to train, in one app.",
+    f2t:"Tricks Encyclopedia", f2d:"A collection of moves with difficulty, tags and video tutorials. Keep track of what you're learning and what you've already completed.",
+    f3t:"Progress Tracker", f3d:"Record your attempt videos on your phone and review each trick's progress over time.",
+    f6t:"Athlete Profile", f6d:"Your saved and created spots, plus the jams and events you join. Your space in the parkour community.",
     ss_eye:"App in action", ss_title:"Built for<br>the modern athlete", ss_sub:"Simple, fast, always ready for action.",
     sc1t:"Encyclopedia", sc1s:"Search a trick…",
     lb1:"Beginner · Jumps", lb2:"Intermediate · Vault", lb3:"Advanced · Flip", lb4:"Beginner · Climbing", lb5:"Beginner · Vault",
@@ -685,9 +686,9 @@ const T = {
     pr_bio:"4-year traceur · Turin", pr_ov:"Overall Progress", pr_fl:"Flip & Tricking",
     sp_name:"Via Garibaldi Wall", sp_safe:"🛡️ Safe", sp_desc:"Wall about 3m long, great for precision and speed vault. Good concrete floor.", sp_vis:"✓ Mark as Visited",
     how_eye:"How it works", how_title:"Three steps<br>to get started",
-    st1t:"Download & create profile", st1d:"Sign up, set your level and select the tricks you already know. PKour learns from you.",
-    st2t:"Explore the encyclopedia", st2d:"Browse hundreds of movements, watch tutorials, learn prerequisites and track progress with personal videos.",
-    st3t:"Go to the spot", st3d:"Find nearby parkour spots, rate and add new ones. The community grows together.",
+    st1t:"Download & create profile", st1d:"Create your account and choose whether to show a public or private profile.",
+    st2t:"Explore the encyclopedia", st2d:"Browse tricks, watch video tutorials and update your progress.",
+    st3t:"Go to the spot", st3d:"Find nearby spots, events and jams and join the community.",
     cta_title:"Ready to level<br>up?",
     cta_sub_live:"Download PKour on iOS and Android.",
     cta_btn:"Notify me at launch", ep:"your@email.com",
@@ -696,11 +697,11 @@ const T = {
     download_ios:"Download on the App Store", download_android:"Get it on Google Play",
     cd_caption:"App launch on iOS and Android in",
     cd_days:"days", cd_hours:"hrs", cd_mins:"min", cd_secs:"sec",
-    footer_tagline:"The app to find parkour spots and train with the community.",
+    footer_tagline:"The app to find spots, events and jams and train with the community.",
     footer_legal:"Legal", footer_privacy:"Privacy Policy", footer_terms:"Terms of Service", footer_delete:"Delete Account", footer_contact:"Contact",
     footer:"© 2026 PKour by Moreno Boasso.",
     doc_title:"PKour — The App to Find Parkour Spots",
-    doc_desc:"PKour is the app to find parkour spots near you: interactive map, tricks encyclopedia, progress tracker and athlete profile."
+    doc_desc:"PKour is the app to find parkour spots near you: map, events and jams, tricks, progress and athlete profile."
   }
 };
 
