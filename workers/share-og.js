@@ -6,7 +6,7 @@
  *   /tricks/:id -> BE GET /share/tricks/:id (HTML + OG)
  *   /events/:id -> BE GET /share/events/:id (HTML + OG)
  *   /jams/:id   -> BE GET /share/jams/:id   (HTML + OG)
- *   everything else -> origin (GitHub Pages)
+ *   everything else -> origin (GitHub Pages), with long cache for static assets
  *
  * Deploy (dashboard or wrangler):
  *   1. Cloudflare DNS for pkour.it must be proxied (orange cloud).
@@ -28,6 +28,18 @@ const BE_SHARE_ORIGIN =
   'https://pkour-be-513506522652.europe-west1.run.app';
 
 const SHARE_PATH = /^\/(spots|tricks|events|jams)\/([^/]+)\/?$/;
+const STATIC_ASSET =
+  /^\/(assets\/|favicon\.|og-default\.png|robots\.txt|sitemap\.xml|.*\.(webp|png|svg|ico|jpg|jpeg|woff2?|css|js)$)/i;
+
+function withCache(response, cacheControl) {
+  const headers = new Headers(response.headers);
+  headers.set('Cache-Control', cacheControl);
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
 
 export default {
   async fetch(request, _env, _ctx) {
@@ -36,7 +48,12 @@ export default {
     // Only intercept clean share paths; leave AASA / assetlinks / landing alone.
     const match = url.pathname.match(SHARE_PATH);
     if (!match) {
-      return fetch(request);
+      const response = await fetch(request);
+      // GitHub Pages serves short TTLs; override for fingerprinted-ish static assets.
+      if (STATIC_ASSET.test(url.pathname) && response.ok) {
+        return withCache(response, 'public, max-age=31536000, immutable');
+      }
+      return response;
     }
 
     // Preserve method for safety; share pages are GET/HEAD only.

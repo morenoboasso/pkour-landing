@@ -10,6 +10,8 @@ Proxy di `https://pkour.it/{spots|tricks|events|jams}/:id` verso:
 
 così i crawler ricevono HTML con `og:image` / `og:title` dinamici.
 
+Per il resto del sito passa a GitHub Pages e imposta `Cache-Control: public, max-age=31536000, immutable` su `/assets/*` e file statici (GH Pages da solo ha TTL corti).
+
 ## Deploy rapido
 
 1. DNS `pkour.it` su Cloudflare (proxy ON).

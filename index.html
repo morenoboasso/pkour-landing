@@ -38,7 +38,7 @@
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/screenshots/home.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/screenshots/home.webp" type="image/webp" fetchpriority="high" imagesizes="320px" imagesrcset="assets/screenshots/home.webp 640w">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"></noscript>
@@ -377,7 +377,7 @@
 
 <nav aria-label="Navigazione principale">
   <div class="nav-left">
-    <img src="assets/PKour Logo royal tea;.svg" alt="PKour" width="140" height="40" decoding="async" fetchpriority="low">
+    <img src="assets/pkour-logo-teal.svg" alt="PKour" width="140" height="40" decoding="async" fetchpriority="low">
   </div>
   <div class="nav-right">
     <select class="lang-select" id="langSelect" aria-label="Cambia lingua" onchange="applyLang(this.value)">
@@ -419,6 +419,8 @@
       <div class="phone-glow"></div>
       <img
         src="assets/screenshots/home.webp"
+        srcset="assets/screenshots/home.webp 640w"
+        sizes="320px"
         alt="PKour app home screen"
         class="hero-screenshot"
         width="320"
@@ -563,7 +565,7 @@
 <footer>
   <div class="footer-container">
     <div class="footer-brand-col">
-      <img src="assets/PKour Logo white.svg" alt="PKour" width="140" height="40" loading="lazy" decoding="async">
+      <img src="assets/pkour-logo-white.svg" alt="PKour" width="140" height="40" loading="lazy" decoding="async">
       <p class="footer-tagline" data-i18n="footer_tagline">L'app per trovare spot, eventi e jam e allenarti con la community.</p>
     </div>
     <div class="footer-links-col">
@@ -574,12 +576,12 @@
     </div>
     <div class="footer-contact-col">
       <h3 class="footer-heading" data-i18n="footer_contact">Contact</h3>
-      <a href="mailto:support@pkour.it" class="footer-link" title="Contatta il supporto PKour via email" data-i18n-title="link_email" style="display: flex; align-items: center; gap: 8px;">
+      <a href="#" class="footer-link" id="supportMail" title="Contatta il supporto PKour via email" data-i18n-title="link_email" style="display: flex; align-items: center; gap: 8px;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
           <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
-        support@pkour.it
+        <span id="supportMailLabel">support&#64;pkour.it</span>
       </a>
       <a href="https://instagram.com/pkour.app" target="_blank" rel="noopener noreferrer" class="footer-link" title="Segui PKour su Instagram" data-i18n-title="link_instagram" style="display: flex; align-items: center; gap: 8px;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -976,6 +978,14 @@ function initCarousel() {
 
 // ─── Init ────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  // Build mailto at runtime so Cloudflare Email Obfuscation does not inject a critical-path script.
+  const supportMail = document.getElementById('supportMail');
+  if (supportMail) {
+    const addr = 'support' + '@' + 'pkour.it';
+    supportMail.href = 'mailto:' + addr;
+    const label = document.getElementById('supportMailLabel');
+    if (label) label.textContent = addr;
+  }
   applyStoreCta();
   applyLang(lang);
   startCountdown();
