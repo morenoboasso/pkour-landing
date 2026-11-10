@@ -59,7 +59,13 @@
   "keywords": "parkour spot, parkour app, mappa parkour, eventi parkour, jam parkour, freerunning",
   "publisher": {
     "@type": "Organization",
-    "name": "PKour"
+    "name": "PKour",
+    "sameAs": [
+      "https://www.instagram.com/pkour.app",
+      "https://www.youtube.com/@PKourApp",
+      "https://www.tiktok.com/@pkour.app",
+      "https://www.linkedin.com/company/146132952/"
+    ]
   },
   "inLanguage": [
     "it",
@@ -340,6 +346,14 @@
   .seo-content p:last-child { margin-bottom: 0; }
   .footer-link { color: var(--text-dim); text-decoration: none; font-size: 14px; transition: color 0.2s; }
   .footer-link:hover { color: var(--accent-bright); }
+  .footer-socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+  .footer-social {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; border-radius: 10px;
+    border: 1px solid var(--border); color: var(--text-dim);
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .footer-social:hover { color: var(--accent-bright); border-color: var(--accent); background: rgba(18,104,105,0.12); }
   .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; }
   .footer-copy { font-size: 13px; color: var(--text-muted); }
 
@@ -583,14 +597,33 @@
         </svg>
         <span id="supportMailLabel">support&#64;pkour.it</span>
       </a>
-      <a href="https://instagram.com/pkour.app" target="_blank" rel="noopener noreferrer" class="footer-link" title="Segui PKour su Instagram" data-i18n-title="link_instagram" style="display: flex; align-items: center; gap: 8px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-        </svg>
-        @pkour.app
-      </a>
+      <div class="footer-socials" aria-label="Social">
+        <a href="https://www.instagram.com/pkour.app" target="_blank" rel="noopener noreferrer" class="footer-social" title="Segui PKour su Instagram" data-i18n-title="link_instagram" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@PKourApp" target="_blank" rel="noopener noreferrer" class="footer-social" title="Segui PKour su YouTube" data-i18n-title="link_youtube" aria-label="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@pkour.app" target="_blank" rel="noopener noreferrer" class="footer-social" title="Segui PKour su TikTok" data-i18n-title="link_tiktok" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .59.04.87.13v-3.4a6.21 6.21 0 0 0-.87-.06A6.33 6.33 0 0 0 3.16 15.2 6.33 6.33 0 0 0 9.49 21.5a6.33 6.33 0 0 0 6.33-6.33V8.8a8.18 8.18 0 0 0 4.78 1.52V6.9a4.85 4.85 0 0 1-1.01-.21z"></path>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/company/146132952/" target="_blank" rel="noopener noreferrer" class="footer-social" title="Segui PKour su LinkedIn" data-i18n-title="link_linkedin" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -610,7 +643,11 @@ const T = {
     link_features:"Scopri le funzionalità di PKour",
     link_privacy:"Leggi la Privacy Policy di PKour",
     link_terms:"Leggi i Termini di Servizio di PKour", link_delete:"Richiedi l'eliminazione del tuo account PKour",
-    link_email:"Contatta il supporto PKour via email", link_instagram:"Segui PKour su Instagram",
+    link_email:"Contatta il supporto PKour via email",
+    link_instagram:"Segui PKour su Instagram",
+    link_youtube:"Segui PKour su YouTube",
+    link_tiktok:"Segui PKour su TikTok",
+    link_linkedin:"Segui PKour su LinkedIn",
     s_tricks:"Tricks", s_spots:"Spots", s_events:"Events & Jams", s_coach:"Social",
     map_near:"Spot Vicino a Te", map_sub:"2 spot nelle vicinanze · Torino",
     feat_eye:"Feature", feat_title:"Ogni strumento<br>che ti serve", feat_sub:"Pensata per chi inizia e per chi allena da anni.",
@@ -662,7 +699,11 @@ const T = {
     link_features:"Discover PKour features",
     link_privacy:"Read PKour Privacy Policy",
     link_terms:"Read PKour Terms of Service", link_delete:"Request deletion of your PKour account",
-    link_email:"Contact PKour support via email", link_instagram:"Follow PKour on Instagram",
+    link_email:"Contact PKour support via email",
+    link_instagram:"Follow PKour on Instagram",
+    link_youtube:"Follow PKour on YouTube",
+    link_tiktok:"Follow PKour on TikTok",
+    link_linkedin:"Follow PKour on LinkedIn",
     s_tricks:"Tricks", s_spots:"Spots", s_events:"Events & Jams", s_coach:"Social",
     map_near:"Spots Near You", map_sub:"2 spots nearby · Turin",
     feat_eye:"Features", feat_title:"Every tool<br>you need", feat_sub:"Built for beginners and athletes who've trained for years.",
