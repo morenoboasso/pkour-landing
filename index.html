@@ -968,36 +968,51 @@ if (emailInput) {
   });
 }
 
-// ─── Carousel ─────────────────────────────────────────────────────────
+// ─── Carousel (active highlight only on mobile) ───────────────────────
 const track = document.querySelector('.screenshots-track');
 const dots = document.querySelectorAll('.carousel-dot');
 const phones = document.querySelectorAll('.screenshot-phone');
+const carouselMobileMq = window.matchMedia('(max-width: 900px)');
+
+function clearCarouselActive() {
+  phones.forEach((p) => p.classList.remove('active'));
+  dots.forEach((d) => d.classList.remove('active'));
+}
 
 function initCarousel() {
   if (!track || dots.length === 0) return;
+
   const updateActive = () => {
+    // Desktop: all screenshots equal — no selection.
+    if (!carouselMobileMq.matches) {
+      clearCarouselActive();
+      return;
+    }
     const scrollCenter = track.scrollLeft + track.offsetWidth / 2;
     phones.forEach((phone, index) => {
       const phoneCenter = phone.offsetLeft + phone.offsetWidth / 2;
       if (Math.abs(scrollCenter - phoneCenter) < phone.offsetWidth / 2) {
-        phones.forEach(p => p.classList.remove('active'));
+        phones.forEach((p) => p.classList.remove('active'));
         phone.classList.add('active');
-        dots.forEach(d => d.classList.remove('active'));
-        dots[index].classList.add('active');
+        dots.forEach((d) => d.classList.remove('active'));
+        if (dots[index]) dots[index].classList.add('active');
       }
     });
   };
 
   track.addEventListener('scroll', updateActive, { passive: true });
+  carouselMobileMq.addEventListener('change', updateActive);
   updateActive();
 
-  dots.forEach(dot => {
+  dots.forEach((dot) => {
     dot.addEventListener('click', () => {
-      const index = parseInt(dot.dataset.index);
+      if (!carouselMobileMq.matches) return;
+      const index = parseInt(dot.dataset.index, 10);
       const phone = phones[index];
+      if (!phone) return;
       track.scrollTo({
         left: phone.offsetLeft - (track.offsetWidth - phone.offsetWidth) / 2,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     });
   });
